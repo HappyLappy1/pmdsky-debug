@@ -8570,6 +8570,25 @@ arm9:
         
         r0: number
         return: ceil(number)
+    - name: InitMersenneTwister
+      address:
+        NA: 0x20510e8
+        EU: 0x2051420
+        JP: 0x2051438
+      description: |-
+        Populates the MERSENNE_TWISTER_TABLE using an initial seed.
+        
+        r0: initial_seed
+    - name: AdvanceMersenneTwister
+      address:
+        NA: 0x2051134
+        EU: 0x205146C
+        JP: 0x2051484
+      description: |-
+        Advances the MT state by one, and returns a traditionally bitmasked output.
+        Twists the table automatically if MT_TABLE_INDEX is 623 or above.
+        No params.
+        return: random_value
     - name: DungeonGoesUp
       address:
         EU: 0x20515C0
@@ -13232,6 +13251,46 @@ arm9:
         [Runtime]
         
         type: struct adventure_log*
+    - name: MT_TABLE_INDEX
+      address:
+        EU: 0x20B0898
+        NA: 0x20AFF7C
+        JP: 0x20B17F0
+      length:
+        EU: 0x4
+        NA: 0x4
+        JP: 0x4
+      description: |-
+        [Runtime]Index of the current MT state in MERSENNE_TWISTER_TABLE.
+        
+        type: int
+    - name: MT_LOW_BIT_MULT
+      address:
+        EU: 0x20B089C
+        NA: 0x20AFF80
+        JP: 0x20B17F4
+      length:
+        EU: 0x8
+        NA: 0x8
+        JP: 0x8
+      description: |-
+        A table of integer mults for the LSB of the n+1 prior state. 
+        If that doesn't make sense, just google 0x9908B0D. 
+        
+        type: int[2]
+    - name: MERSENNE_TWISTER_TABLE
+      address:
+        EU: 0x20B08A4
+        NA: 0x20AFF88
+        JP: 0x20B17FC
+      length:
+        EU: 0x9C0
+        NA: 0x9C0
+        JP: 0x9C0
+      description: |-
+        [Runtime]The table of integers used for MT pseudorandomness.
+        
+        type: int[624]
     - name: ITEM_TABLES_PTRS_1
       address:
         EU: 0x20B1264
