@@ -13264,7 +13264,7 @@ arm9:
         [Runtime]Index of the current MT state in MERSENNE_TWISTER_TABLE.
         
         type: int
-    - name: MT_LOW_BIT_MULT
+    - name: MT_LOW_BIT_MULTS
       address:
         EU: 0x20B089C
         NA: 0x20AFF80
