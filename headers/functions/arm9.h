@@ -905,6 +905,8 @@ uint32_t GetPlayTimeSeconds(struct play_time* igt);
 uint32_t SubFixedPoint(uint32_t val_fp, uint32_t dec_fp);
 uint32_t BinToDecFixedPoint(ufx32_16* q16);
 int CeilFixedPoint(uint32_t val_fp);
+void InitMersenneTwister(uint32_t initial_seed);
+int AdvanceMersenneTwister();
 bool DungeonGoesUp(enum dungeon_id dungeon_id);
 int GetTurnLimit(enum dungeon_id dungeon_id);
 bool DoesNotSaveWhenEntering(enum dungeon_id dungeon_id);
