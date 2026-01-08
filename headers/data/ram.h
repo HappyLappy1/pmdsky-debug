@@ -52,6 +52,7 @@ extern char TEAM_NAME[TEAM_NAME_LENGTH_];
 extern struct monster_id_16 LEVEL_UP_DATA_MONSTER_ID;
 extern struct level_up_entry LEVEL_UP_DATA_DECOMPRESS_BUFFER[100];
 extern struct team_member_table TEAM_MEMBER_TABLE;
+extern struct bulk_item SET_ITEM_TABLE[4];
 extern uint16_t DISP_MODE;
 extern uint16_t GXI_VRAM_LOCK_ID;
 extern struct vram_banks_set ENABLED_VRAM_BANKS;
