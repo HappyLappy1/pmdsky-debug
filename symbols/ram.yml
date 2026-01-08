@@ -523,6 +523,17 @@ ram:
         See the comments on struct team_member_table for more information.
         
         type: struct team_member_table
+    - name: SET_ITEM_TABLE
+      address:
+        EU: 0x22B7C60
+        NA: 0x22B7320
+        JP: 0x22B8AD8
+      length:
+        EU: 0x10
+        NA: 0x10
+        JP: 0x10
+      description: |-
+        Table of bulk_item structs used by the item_Set() family of opcodes, as well as functions like ItemAtTableIdx.
     - name: DRIVER_WORK
       address:
         EU: 0x22B7C70
