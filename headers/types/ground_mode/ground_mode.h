@@ -577,16 +577,27 @@ ASSERT_SIZE(struct partner_talk_kind_table_entry, 8);
 
 struct bar_item {
     struct item_id_16 id;
-    int16_t field_0x2;
-    int16_t field_0x4;
-    int16_t field_0x6;
-    int16_t field_0x8;
-    int16_t field_0xa;
-    int16_t field_0xc;
-    // Probably padding
-    undefined field_0xe[8];
+    int16_t hp_boost;
+    int16_t iq_boost;
+    int16_t atk_boost;
+    int16_t def_boost;
+    int16_t spa_boost;
+    int16_t spd_boost;
+    struct drink_result_weights;
 };
 ASSERT_SIZE(struct bar_item, 22);
+
+struct drink_result_weights {
+    // "You felt happy" or guaranteed stats from an item.
+    ushort normal_drink;
+    // Chance-based stats using the above table.
+    ushort good_drink;
+    // drink events can be miracle drinks, dungeon unlocks, recruits, etc.
+    ushort event_drink;
+    // Chance-based stat reductions. Unclear if depends on the stat table.
+    ushort bad_drink;
+};
+ASSERT_SIZE(struct drink_result_weights, 8);
 
 struct stat_bitflag {
     bool f_attack : 1;
