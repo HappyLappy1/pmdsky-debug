@@ -276,6 +276,10 @@ ram:
         NA: 0x4
         JP: 0x4
       description: The amount of money the player currently has stored in the Duskull Bank.
+    - name: SWAP_SHOP_ITEMS
+      address:
+        EU: 0x22A5518
+      description: A list of items Croagunk will stock in the swap shop today, excluding items with specific recipes.
     - name: AUDIO_COMMANDS_BUFFER
       address:
         EU: 0x22A5590
