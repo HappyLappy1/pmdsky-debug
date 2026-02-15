@@ -279,6 +279,8 @@ ram:
     - name: SWAP_SHOP_ITEMS
       address:
         EU: 0x22A5518
+      length:
+        EU: 0x10
       description: A list of items Croagunk will stock in the swap shop today, excluding items with specific recipes.
     - name: AUDIO_COMMANDS_BUFFER
       address:
