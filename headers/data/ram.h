@@ -25,6 +25,7 @@ extern struct bulk_item KECLEON_WARES_ITEMS[4];
 extern struct bulk_item UNUSED_KECLEON_WARES_ITEMS[4];
 extern int32_t MONEY_CARRIED;
 extern int32_t MONEY_STORED;
+extern int16_t SWAP_SHOP_ITEMS[8];
 extern struct audio_command AUDIO_COMMANDS_BUFFER[16];
 extern struct mem_arena* SOUND_MEMORY_ARENA_PTR;
 extern struct window_list WINDOW_LIST;
