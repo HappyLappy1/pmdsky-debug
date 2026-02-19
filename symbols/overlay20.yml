@@ -12,7 +12,221 @@ overlay20:
     NA: 0x3000
     JP: 0x3000
   description: Controls the Recycle Shop.
-  functions: []
+  functions:
+      - name: PrintWynautTextbox
+      address:
+        EU: 0x238BE80      
+      description: 
+        r0: string_id
+    - name: PrintWynautSimpleMenu
+      address:
+        EU: 0x238BEDC      
+      description: 
+        r0: struct_0xB4_ptr
+        r1: string_id
+        r2: simple_menu_id_item_ptr
+    - name: MaybeTryFreePortraitWindow
+      address:
+        EU: 0x238BF50      
+      description: 
+        r0: struct_0xB4_ptr
+        r1: unk_bool
+    - name: FUN_0238bf90
+      address:
+        EU: 0x238BF90      
+      description: Can call PrintWynautTextString
+        r0: struct_0xB4_ptr
+        r1: string_id
+    - name: PrintWynautNormalPortrait
+      address:
+        EU: 0x238BFE8      
+      description: 
+        r0: struct_0xB4_ptr
+    - name: MaybeCloseAndUpdatePortraitBox
+      address:
+        EU: 0x238C050      
+      description: 
+        r0: struct_0xB4_ptr
+    - name: InitStructx84
+      address:
+        EU: 0x238C080      
+      description: 
+        r0: recycle_item_data_ptr
+    - name: CloseAllWindowsx340
+      address:
+        EU: 0x238C0EC      
+      description: Seems to close all windows for struct_0x340. 
+      
+      No params.
+    - name: FUN_0238c19c
+      address:
+        EU: 0x238C19C      
+      description: Has a juicy switch case for struct_0x84!!!
+      
+      no params.
+    - name: CheckIfTheCaseIdIs4
+      address:
+        EU: 0x238C340      
+      description: for struct_0x84
+
+      no params.
+    - name: MaybePopulateRecycleItemInfo
+      address:
+        EU: 0x238C364      
+      description: Seems to populate a given recycle_item_info struct. 
+        r0: recycle_item_info_ptr
+        r1: undefined
+    - name: MaybeDisplayTopScreenStatsForRecycleItem
+      address:
+        EU: 0x238C40C      
+      description: Seems to be responsible for handling display of the top screen based on the currently selected recycle shop item.
+        r0: undefined
+    - name: FUN_238c580
+      address:
+        EU: 0x238C580      
+      description: Related to drawing text?
+        r0: undefined
+    - name: FUN_238c5f4
+      address:
+        EU: 0x238C5F4      
+      description: Related to preprocessor_args
+        r0: undefined
+    - name: InitStructx340
+      address:
+        EU: 0x238C6A0      
+      description: Looks complicated
+        r0: index_to_choose_text_string_id
+    - name: Structx340StateCase
+      address:
+        EU: 0x238C8D0      
+      description: Another juicy switch case, uses struct_0x340.
+
+      no params.
+    - name: RetrieveSimpleMenu2Result
+      address:
+        EU: 0x238CD30      
+      description: From struct_0x340.
+
+      no params.
+    - name: MaybeCopyRecycleShopItems
+      address:
+        EU: 0x238CD44      
+      description: stmia/ldmia nonsense. Something is being moved in bulk.
+        r0: recycle_item_data*
+    - name: MaybeFreeStructx340
+      address:
+        EU: 0x238CD70      
+      description: Calls Ov20CloseAllWindows
+
+      no params.
+    - name: TryCloseSimpleMenu1
+      address:
+        EU: 0x238CDC8      
+      description: This struct has TWO simple menus!
+        r0: struct_0x340_ptr
+    - name: TryCloseSimpleMenu2
+      address:
+        EU: 0x238CDF8      
+      description: This struct has TWO simple menus!
+        r0: struct_0x340_ptr
+    - name: InitStructx1CC
+      address:
+        EU: 0x238CE20      
+      description: Looks spicy!
+        r0: item_id
+        r1: num_items_required
+        r2: undefined
+    - name: StoreFunctions
+      address:
+        EU: 0x238D028      
+      description: For struct_0x1cc
+        r0: func_1*
+        r1: func_2*
+        r2: func_3*
+    - name: Switchx1CC
+      address:
+        EU: 0x238D04C      
+      description: for struct_0x1cc
+        r0: undefined
+        r1: undefined
+        r2: undefined
+        r3: undefined
+    - name: RetrieveSimpleMenuResultx1CC
+      address:
+        EU: 0x238D54C      
+      description: Retrieves the SimpleMenuResult for struct_0x1cc
+
+      no params.
+    - name: FUN_02012604Wrapper
+      address:
+        EU: 0x238D560      
+      description: Calls FUN_02012604 with the owned_items field from struct_0x1cc
+
+      no params.
+    - name: MaybeFreeOwnedItemsList
+      address:
+        EU: 0x238D57C      
+      description: related to struct 0x1cc
+      
+      no params.
+    - name: MaybeTallyNumberOfBagOwnedItems
+      address:
+        EU: 0x238D620      
+      description: related to struct_0x1cc
+        r0: struct_0x1cc_ptr
+    - name: MaybeTallyNumberOfBagOwnedItemsButNot
+      address:
+        EU: 0x238D668      
+      description: related to struct 0x1cc
+        r0: struct_0x1cc_ptr
+    - name: Closex1CCWindows
+      address:
+        EU: 0x238D6C4      
+      description: related to struct 0x1cc
+        r0: struct_0x1cc_ptr
+    - name: CloseSimpleMenux1CC
+      address:
+        EU: 0x238D72C      
+      description: Attempts to close the simple menu for struct_0x1cc.
+
+      no params.
+    - name: FUN_0238d754
+      address:
+        EU: 0x238D754
+      description: Seems to be initializing items of some kind?
+        r0: undefined
+        r1: undefined
+        r2: undefined
+        r3: undefined
+    - name: MaybeCheckIfPlayerHasRequiredItems
+      address:
+        EU: 0x238D800
+      description: Runs MaybeTallyNumberOfBagOwnedItems. If non-zero, runs additional code.
+        r0: undefined
+    - name: 
+      address: MaybeHandleItemTradingLogic
+        EU: 0x238D860
+      description: Seems to play sound effects and the like, based on what kind of trade is occurring.
+        r0: undefined
+    - name: MaybeDistinguishBetweenStorageAndBagItems
+      address:
+        EU: 0x238D97C
+      description: Seems to call different functions depending on if the selected item is from the bag or storage.
+        r0: undefined
+        r1: undefined
+        r2: owned_item_list_index
+        r3: undefined
+    - name: MaybeUpdateWindowWithItemSelectedCount
+      address:
+        EU: 0x238D9DC
+      description: Seems to update a texbox window containing the number of items the player has selected.
+        r0: window_id
+        r1: struct_0x1cc_ptr
+    - name: DisplaySelectionTutorialWindow
+      address:
+        EU: 0x238DA60
+      description: Displays a window telling the player which button to use to select items.
+        r0: window_id
   data:
     - name: OVERLAY20_UNKNOWN_POINTER__NA_238CF7C
       address:
